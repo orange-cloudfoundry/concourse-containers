@@ -1,8 +1,8 @@
 FROM orangeopensource/concourse:base
 
-ENV terraform_version "0.8.5"
+ENV terraform_version "0.9.5"
 
-ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.5.6"
+ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.6.0"
 
 RUN wget -O /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" && \
     unzip /tmp/terraform.zip -d /usr/local/bin && \
