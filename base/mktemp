@@ -5,4 +5,4 @@ do
     arg=$(echo "$var" | sed -e 's/\.XXXXX$/.XXXXXX/g')
     args+=("$arg")
 done
-$HOME/mktemp "${args[@]}"
+/bin/mktemp "${args[@]}"
