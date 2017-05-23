@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+args=()
+for var in "$@"
+do
+    arg=$(echo "$var" | sed -e 's/\.XXXXX$/.XXXXXX/g')
+    args+=("$arg")
+done
+$HOME/mktemp "${args[@]}"
