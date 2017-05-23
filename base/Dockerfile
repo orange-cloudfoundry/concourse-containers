@@ -1,4 +1,4 @@
-FROM ruby:2.2-slim
+FROM ruby:2.2
 
 
 ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat"
