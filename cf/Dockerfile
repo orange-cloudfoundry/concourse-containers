@@ -32,7 +32,7 @@ RUN curl -L -o "${ANTIFREEZE_TEMPFILE}" \
   && cf install-plugin -f "${ANTIFREEZE_TEMPFILE}" \
   && rm "${ANTIFREEZE_TEMPFILE}"
 
-RUN curl -L -o "${BG_RESTAGE_VERSION}" \
+RUN curl -L -o "${BG_RESTAGE_TEMPFILE}" \
   "https://github.com/orange-cloudfoundry/cf-plugin-bg-restage/releases/download/v${BG_RESTAGE_VERSION}/cf-plugin-bg-restage_linux_amd64" \
   && chmod +x "${BG_RESTAGE_TEMPFILE}" \
   && cf install-plugin -f "${BG_RESTAGE_TEMPFILE}" \
