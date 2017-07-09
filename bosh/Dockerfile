@@ -1,16 +1,16 @@
 FROM orangeopensource/concourse:base
 
-ENV CF_CLI_VERSION "6.26.0"
+ENV CF_CLI_VERSION "6.28.0"
 
-ENV SPRUCE_VERSION "1.8.9"
+ENV SPRUCE_VERSION "1.10.0"
 
 ENV spiff_version "1.0.7"
 
-ENV BOSH_CLI_GO_VERSION "2.0.16"
+ENV BOSH_CLI_GO_VERSION "2.0.27"
 
 RUN gem install bosh_cli -v 1.3232.0 --no-rdoc --no-ri
 
-ENV CREDHUB_CLI_VERSION "0.7.0"
+ENV CREDHUB_CLI_VERSION "1.1.0"
 
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C /usr/local/bin
 
