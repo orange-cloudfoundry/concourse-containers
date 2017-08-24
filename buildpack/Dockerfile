@@ -1,6 +1,6 @@
 FROM ruby:2.3-alpine
 
-ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat"
+ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat build-base libffi-dev"
 
 RUN apk add --update $PACKAGES && rm -rf /var/cache/apk/*
 
