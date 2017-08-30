@@ -8,6 +8,8 @@ ENV spiff_version "1.0.7"
 
 ENV BOSH_CLI_GO_VERSION "2.0.27"
 
+ENV BOSH_INIT_VERSION "0.0.103"
+
 RUN gem install bosh_cli -v 1.3232.0 --no-rdoc --no-ri
 
 ENV CREDHUB_CLI_VERSION "1.1.0"
@@ -18,6 +20,9 @@ RUN curl -L "https://github.com/cloudfoundry-incubator/credhub-cli/releases/down
 
 RUN curl -L "https://s3.amazonaws.com/bosh-cli-artifacts/bosh-cli-${BOSH_CLI_GO_VERSION}-linux-amd64" -o /usr/local/bin/bosh-cli \
 && chmod +x /usr/local/bin/bosh-cli
+
+RUN curl -L "https://s3.amazonaws.com/bosh-init-artifacts/bosh-init-${BOSH_INIT_VERSION}-linux-amd64" -o /usr/local/bin/bosh-init \
+&& chmod +x /usr/local/bin/bosh-init
 
 RUN apk add --update wget ca-certificates \
   && wget https://github.com/geofffranks/spruce/releases/download/v${SPRUCE_VERSION}/spruce-linux-amd64 \
