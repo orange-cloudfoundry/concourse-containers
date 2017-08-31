@@ -1,4 +1,4 @@
-FROM orangeopensource/concourse:base
+FROM orangeopensource/concourse:base-ruby
 
 ENV CF_CLI_VERSION "6.28.0"
 

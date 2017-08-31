@@ -1,4 +1,4 @@
-FROM ruby:2.3-alpine
+FROM alpine:3.6
 
 ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat build-base libffi-dev zip"
 
