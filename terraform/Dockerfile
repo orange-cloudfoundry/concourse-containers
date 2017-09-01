@@ -2,7 +2,7 @@ FROM orangeopensource/concourse:base
 
 ENV terraform_version "0.10.2"
 
-ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.8.4"
+ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.8.5"
 
 ENV JSON2HCL_VERSION "v0.0.6"
 
