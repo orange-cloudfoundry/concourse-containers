@@ -16,8 +16,6 @@ ENV BG_RESTAGE_TEMPFILE "/tmp/cf-plugin-bg-restage_linux_386"
 
 RUN apk add --update musl-dev gcc make g++ && rm -rf /var/cache/apk/*
 
-RUN gem install cf-uaac -v 3.12.0 --no-rdoc --no-ri
-
 RUN curl -L "https://cli.run.pivotal.io/stable?release=linux64-binary&version=${CF_CLI_VERSION}" | tar -zx -C /usr/local/bin
 
 RUN curl -L -o "${AUTOPILOT_TEMPFILE}" \
