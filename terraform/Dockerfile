@@ -1,8 +1,10 @@
 FROM orangeopensource/concourse:base
 
-ENV terraform_version "0.10.2"
+ENV terraform_version "0.10.7"
 
-ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.9.1"
+ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.10.0"
+
+ENV PROVIDER_CREDHUB_VERSION "v0.10.0"
 
 ENV JSON2HCL_VERSION "v0.0.6"
 
@@ -12,6 +14,8 @@ RUN wget -O /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terra
     rm /tmp/terraform.zip
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-cloudfoundry/master/bin/install.sh)"
+
+RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-credhub/master/bin/install.sh)"
 
 RUN curl -SsL https://github.com/kvz/json2hcl/releases/download/${JSON2HCL_VERSION}/json2hcl_${JSON2HCL_VERSION}_linux_amd64 \
 	| tee /usr/local/bin/json2hcl > /dev/null && chmod +x /usr/local/bin/json2hcl
