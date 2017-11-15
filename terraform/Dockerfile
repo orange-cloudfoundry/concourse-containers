@@ -1,6 +1,6 @@
 FROM orangeopensource/concourse:base
 
-ENV terraform_version "0.10.7"
+ENV terraform_version "0.10.8"
 
 ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.10.0"
 
