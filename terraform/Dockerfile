@@ -17,5 +17,7 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-pro
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-credhub/master/bin/install.sh)"
 
+RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-restrictor/master/bin/install.sh)"
+
 RUN curl -SsL https://github.com/kvz/json2hcl/releases/download/${JSON2HCL_VERSION}/json2hcl_${JSON2HCL_VERSION}_linux_amd64 \
 	| tee /usr/local/bin/json2hcl > /dev/null && chmod +x /usr/local/bin/json2hcl
