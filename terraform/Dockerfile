@@ -1,12 +1,13 @@
 FROM orangeopensource/concourse:base
 
-ENV terraform_version "0.10.8"
+ENV terraform_version "0.11.7"
 
 ENV PROVIDER_CLOUDFOUNDRY_VERSION "v0.10.0"
 
-ENV PROVIDER_CREDHUB_VERSION "v0.10.0"
+ENV PROVIDER_CREDHUB_VERSION "v0.11.0"
 
 ENV JSON2HCL_VERSION "v0.0.6"
+ENV TERRAFORM_RESTRICTOR_VERSION "v1.0.0"
 
 RUN wget -O /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" && \
     unzip /tmp/terraform.zip -d /usr/local/bin && \
