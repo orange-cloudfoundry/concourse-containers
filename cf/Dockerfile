@@ -1,8 +1,8 @@
 FROM orangeopensource/concourse:base
 
-ENV CF_CLI_VERSION "6.28.0"
+ENV CF_CLI_VERSION "6.40.0"
 
-ENV AUTOPILOT_VERSION "0.0.3"
+ENV AUTOPILOT_VERSION "0.0.8"
 
 ENV AUTOPILOT_TEMPFILE "/tmp/autopilot-linux"
 
