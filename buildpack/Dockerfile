@@ -1,6 +1,6 @@
 FROM ruby:2.3-slim-stretch
 
-ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libffi-dev zip"
+ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libffi-dev zip gcc"
 
 
 RUN apt-get update && apt-get install -y $PACKAGES && rm -rf /var/lib/apt/lists/*
