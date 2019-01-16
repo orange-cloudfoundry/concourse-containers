@@ -1,9 +1,9 @@
-FROM ruby:2.3-alpine
+FROM ruby:2.3-slim-stretch
 
 ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat build-base libffi-dev zip"
 
 
-RUN apk add --update $PACKAGES && rm -rf /var/cache/apk/*
+RUN RUN apt-get update && apt-get install -y $PACKAGES
 
 RUN curl -L 'https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64' -o /usr/local/bin/jq && chmod +x /usr/local/bin/jq
 
