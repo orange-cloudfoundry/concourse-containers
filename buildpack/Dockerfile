@@ -1,6 +1,6 @@
 FROM ruby:2.3-slim-stretch
 
-ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libffi-dev zip gcc"
+ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libffi-dev zip gcc ruby-dev"
 
 RUN gem install bundler -v 2.0.1
 
