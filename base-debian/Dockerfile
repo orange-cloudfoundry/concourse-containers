@@ -1,6 +1,6 @@
-FROM debian:stretch-slim
+FROM debian:sid-slim
 
-ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget golang-1.8-go jq"
+ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget golang-1.11-go jq unzip"
 
 RUN apt-get update -y && \
   apt-get install -y $PACKAGES && \
