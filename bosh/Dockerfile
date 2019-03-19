@@ -1,6 +1,7 @@
 FROM orangeopensource/concourse:base-ruby
 
 ENV CF_CLI_VERSION "6.28.0"
+ARG BOSH_CLI_VERSION="1.3232.0"
 
 ENV SPRUCE_VERSION "1.10.0"
 
@@ -10,7 +11,7 @@ ENV BOSH_CLI_GO_VERSION "2.0.27"
 
 ENV BOSH_INIT_VERSION "0.0.103"
 
-RUN gem install bosh_cli -v 1.3232.0 --no-rdoc --no-ri
+RUN gem install bosh_cli -v "$BOSH_CLI_VERSION"
 
 ENV CREDHUB_CLI_VERSION "1.1.0"
 

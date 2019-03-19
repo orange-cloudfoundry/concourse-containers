@@ -4,7 +4,7 @@ ARG CF_UAAC_VERSION=3.12.0
 
 RUN apk add --no-cache musl-dev gcc make g++
 
-RUN gem install cf-uaac -v "${CF_UAAC_VERSION}" --no-rdoc --no-ri
+RUN gem install cf-uaac -v "${CF_UAAC_VERSION}"
 
 FROM orangeopensource/concourse:base-ruby
 

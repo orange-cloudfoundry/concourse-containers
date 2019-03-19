@@ -1,15 +1,11 @@
-FROM ruby:2.2-alpine
+FROM ruby:2.4-alpine
 
-ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libc6-compat"
 
-RUN apk add --update $PACKAGES && rm -rf /var/cache/apk/*
+RUN apk add --no-cache bash curl openssh-client file git openssl ca-certificates libc6-compat
 
 COPY mktemp /usr/bin/mktemp
-RUN chmod +x /usr/bin/mktemp
 
 
 RUN curl -L 'https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64' -o /usr/local/bin/jq && chmod +x /usr/local/bin/jq
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/ArthurHlt/notifslack/master/bin/install.sh)"
-
-RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2
