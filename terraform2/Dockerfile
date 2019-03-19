@@ -36,3 +36,8 @@ RUN bash -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-r
 # install json2hcl
 RUN curl -SsL https://github.com/kvz/json2hcl/releases/download/v${JSON2HCL_VERSION}/json2hcl_v${JSON2HCL_VERSION}_linux_amd64 \
 	| tee /usr/local/bin/json2hcl > /dev/null && chmod +x /usr/local/bin/json2hcl
+
+RUN apt-get update -y && \
+  apt-get install -y yarnpkg && \
+  rm -rf /var/lib/apt/lists/*
+RUN yarnpkg global add  terraform-plan-parser
