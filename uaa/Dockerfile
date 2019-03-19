@@ -1,5 +1,13 @@
 FROM orangeopensource/concourse:base-ruby
 
-RUN apk add --update musl-dev gcc make g++ && rm -rf /var/cache/apk/*
+ARG CF_UAAC_VERSION=3.12.0
 
-RUN gem install cf-uaac -v 3.12.0 --no-rdoc --no-ri
+RUN apk add --no-cache musl-dev gcc make g++
+
+RUN gem install cf-uaac -v "${CF_UAAC_VERSION}"
+
+FROM orangeopensource/concourse:base-ruby
+
+RUN apk add --no-cache libstdc++
+
+COPY --from=0 /usr/local/bundle /usr/local/bundle
