@@ -24,17 +24,19 @@ RUN export GOPATH=/tmp/go && \
   cp terraform-provider-cloudfoundry ~/.terraform.d/plugins/linux_amd64/terraform-provider-cloudfoundry
 
 # install terraform-provider-credhub
-ADD https://github.com/orange-cloudfoundry/terraform-provider-credhub/releases/download/v${PROVIDER_CREDHUB_VERSION}/terraform-provider-credhub_linux_amd64 ~/.terraform.d/plugins/linux_amd64/terraform-provider-credhub
+RUN curl -fLSs "https://github.com/orange-cloudfoundry/terraform-provider-credhub/releases/download/v${PROVIDER_CREDHUB_VERSION}/terraform-provider-credhub_linux_amd64" |\
+    install -D /dev/stdin ~/.terraform.d/plugins/linux_amd64/terraform-provider-credhub
 
 # install terraform-provider-uaa
-ADD https://github.com/orange-cloudfoundry/terraform-provider-uaa/releases/download/${PROVIDER_UAA_VERSION}/terraform-provider-uaa_linux_amd64             ~/.terraform.d/plugins/linux_amd64/terraform-provider-uaa
+RUN curl -fLSs "https://github.com/orange-cloudfoundry/terraform-provider-uaa/releases/download/${PROVIDER_UAA_VERSION}/terraform-provider-uaa_linux_amd64" |\
+    install -D /dev/stdin ~/.terraform.d/plugins/linux_amd64/terraform-provider-uaa
 
 # install terraform-restrictor
 RUN bash -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-restrictor/master/bin/install.sh)"
 
 # install json2hcl
-RUN curl -SsL https://github.com/kvz/json2hcl/releases/download/v${JSON2HCL_VERSION}/json2hcl_v${JSON2HCL_VERSION}_linux_amd64 \
-	| tee /usr/local/bin/json2hcl > /dev/null && chmod +x /usr/local/bin/json2hcl
+RUN curl -fSsL "https://github.com/kvz/json2hcl/releases/download/v${JSON2HCL_VERSION}/json2hcl_v${JSON2HCL_VERSION}_linux_amd64" |\
+    install -D /dev/stdin /usr/local/bin/json2hcl
 
 RUN apt-get update -y && \
   apt-get install -y yarnpkg && \
