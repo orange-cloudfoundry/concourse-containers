@@ -1,11 +1,10 @@
 FROM orangeopensource/concourse:base-debian
 
-ENV terraform_version "0.11.11"
-ENV PROVIDER_CLOUDFOUNDRY_BRANCH "do-not-merge-ldap-user-handling"
-ENV PROVIDER_CREDHUB_VERSION "0.12.1"
-ENV PROVIDER_UAA_VERSION "0.9.0"
-ENV JSON2HCL_VERSION "0.0.6"
-#ENV TERRAFORM_RESTRICTOR_VERSION "v1.0.0"
+ARG terraform_version="0.11.11"
+ARG PROVIDER_CLOUDFOUNDRY_BRANCH="do-not-merge-ldap-user-handling"
+ARG PROVIDER_CREDHUB_VERSION="0.12.1"
+ARG PROVIDER_UAA_VERSION="0.9.0"
+ARG JSON2HCL_VERSION="0.0.6"
 
 # install terraform
 RUN wget -O /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" && \
