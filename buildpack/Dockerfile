@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y $PACKAGES && rm -rf /var/lib/apt/lists/
 
 RUN curl -L 'https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64' -o /usr/local/bin/jq && chmod +x /usr/local/bin/jq
 
-RUN curl -L 'https://storage.googleapis.com/golang/go1.11.2.linux-amd64.tar.gz' -o go.tar.gz && tar -C /usr/local -xzf go.tar.gz && rm -f go.tar.gz
+RUN curl -L 'https://dl.google.com/go/go1.12.2.linux-amd64.tar.gz' -o go.tar.gz && tar -C /usr/local -xzf go.tar.gz && rm -f go.tar.gz
 
 RUN mkdir -p /gopath/bin
 ENV GOPATH /gopath

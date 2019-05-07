@@ -6,6 +6,10 @@ RUN apt-get update -y && \
   apt-get install -y $PACKAGES
 
 RUN bash -c "$(curl -fsSL https://raw.github.com/ArthurHlt/notifslack/master/bin/install.sh)"
+RUN curl -fL https://getcli.jfrog.io | sh && mv jfrog /usr/local/bin/
+RUN curl -fL https://github.com/cloudfoundry/bosh-cli/releases/download/v5.4.0/bosh-cli-5.4.0-linux-amd64 | install /dev/stdin /usr/local/bin/bosh
+
+RUN bash -c "$(curl -fsSL https://raw.github.com/ArthurHlt/notifslack/master/bin/install.sh)"
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
