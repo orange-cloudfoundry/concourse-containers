@@ -1,4 +1,4 @@
-FROM debian:sid-slim
+FROM debian:stretch-slim
 
 ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget golang-1.11-go jq unzip python3-minimal python3-requests"
 
