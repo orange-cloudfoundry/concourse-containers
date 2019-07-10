@@ -1,9 +1,14 @@
 FROM debian:stretch-slim
 
-ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget golang-1.11-go jq unzip python3-minimal python3-requests"
+ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget jq unzip python3-minimal python3-requests"
 
 RUN apt-get update -y && \
   apt-get install -y $PACKAGES
+
+RUN curl https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -o go.tar.gz && \
+  tar -C /usr/local -xzf go.tar.gz
+
+ENV PATH="${PATH}:/usr/local/go/bin"
 
 RUN bash -c "$(curl -fsSL https://raw.github.com/ArthurHlt/notifslack/master/bin/install.sh)"
 RUN curl -fL https://getcli.jfrog.io | sh && mv jfrog /usr/local/bin/
