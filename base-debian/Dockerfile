@@ -6,7 +6,8 @@ RUN apt-get update -y && \
   apt-get install -y $PACKAGES
 
 RUN curl https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -o go.tar.gz && \
-  tar -C /usr/local -xzf go.tar.gz
+  tar -C /usr/local -xzf go.tar.gz && \
+  rm -Rf go.tar.gz
 
 ENV PATH="${PATH}:/usr/local/go/bin"
 
