@@ -1,6 +1,6 @@
 FROM debian:stretch-slim
 
-ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget jq unzip python3-minimal python3-requests"
+ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget jq unzip python3-minimal python3-requests binutils"
 
 RUN apt-get update -y && \
   apt-get install -y $PACKAGES
@@ -26,5 +26,10 @@ RUN apt-get update \
  && apt-get remove -y --purge \
     python3-pip \
     python3-setuptools \
+ && apt-get auto-remove -y \
+ && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends bzr \
  && apt-get auto-remove -y \
  && rm -rf /var/lib/apt/lists/*
