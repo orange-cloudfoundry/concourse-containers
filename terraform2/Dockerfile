@@ -5,7 +5,7 @@ ARG PROVIDER_CLOUDFOUNDRY_BRANCH="do-not-merge-ldap-user-handling"
 ARG PROVIDER_CREDHUB_VERSION="0.12.1"
 ARG PROVIDER_UAA_VERSION="0.9.0"
 ARG JSON2HCL_VERSION="0.0.6"
-ARG PROVIDER_CFSECURITY_VERSION="0.1.1"
+ARG PROVIDER_CFSECURITY_VERSION="0.1.3"
 
 # install terraform
 RUN wget -qO /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${terraform_version}/terraform_${terraform_version}_linux_amd64.zip" && \
