@@ -58,7 +58,7 @@ RUN true \
 
 # install yarn, nodejs and terraform-plan-parser
 RUN apt-get update -y && \
-  apt-get install -y gnupg  && \
+  apt-get install -y gnupg python3-ldap3  && \
   rm -rf /var/lib/apt/lists/*
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
  && apt-get install -y nodejs
