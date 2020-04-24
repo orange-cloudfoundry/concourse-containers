@@ -5,7 +5,7 @@ ENV PACKAGES "curl openssh-client file git openssl ca-certificates wget jq unzip
 RUN apt-get update -y && \
   apt-get install -y $PACKAGES
 
-RUN curl https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz -o go.tar.gz && \
+RUN curl https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz -o go.tar.gz && \
   tar -C /usr/local -xzf go.tar.gz && \
   rm -Rf go.tar.gz
 
