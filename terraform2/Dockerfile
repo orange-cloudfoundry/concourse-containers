@@ -1,7 +1,7 @@
 FROM orangeopensource/concourse:base-debian
 
 ARG terraform_version="0.11.14"
-ARG PROVIDER_CLOUDFOUNDRY_BRANCH="rework-back"
+ARG PROVIDER_CLOUDFOUNDRY_BRANCH="dev"
 ARG PROVIDER_CREDHUB_VERSION="0.12.1"
 ARG PROVIDER_UAA_VERSION="0.9.0"
 ARG JSON2HCL_VERSION="0.0.6"
@@ -21,7 +21,6 @@ RUN export GOPATH=/tmp/go \
  && curl -fLSs "https://github.com/mevansam/terraform-provider-cf/archive/${PROVIDER_CLOUDFOUNDRY_BRANCH}.tar.gz" |\
     tar xz -C "${BUILDPATH}" \
  && cd "${BUILDPATH}/terraform-provider-cf-${PROVIDER_CLOUDFOUNDRY_BRANCH}" \
- && if test "${PROVIDER_CLOUDFOUNDRY_LEGACY_TERRAFORM}" -eq 1; then sed -i 's%github.com/hashicorp/terraform v0.12.0%github.com/hashicorp/terraform v0.11.14%g' go.mod; fi  \
  && go mod download \
  && CGO_ENABLED=0 /usr/local/go/bin/go build -a -ldflags="-s -w" \
  && install -D terraform-provider-cloudfoundry ~/.terraform.d/plugins/linux_amd64/terraform-provider-cloudfoundry \
@@ -48,7 +47,6 @@ RUN true \
  && curl -fLSs "https://github.com/orange-cloudfoundry/cf-security-entitlement/archive/v${PROVIDER_CFSECURITY_VERSION}.tar.gz" | \
     tar xz -C "${BUILDPATH}" \
  && cd "${BUILDPATH}/cf-security-entitlement-${PROVIDER_CFSECURITY_VERSION}/" \
- && if test "${PROVIDER_CLOUDFOUNDRY_LEGACY_TERRAFORM}" -eq 1; then sed -i 's%github.com/hashicorp/terraform v0.12.0%github.com/hashicorp/terraform v0.11.14%g' go.mod; fi  \
  && go mod download \
  && cd terraform-provider-cfsecurity \
  && /usr/local/go/bin/go build -ldflags="-s -w" \
