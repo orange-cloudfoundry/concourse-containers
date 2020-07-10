@@ -1,10 +1,10 @@
-FROM ruby:2.3-slim-stretch
+FROM ruby:2.5-slim-stretch
 
 ARG BOSH_CLI_VERSION="5.5.1"
 
 ENV PACKAGES "bash curl openssh-client file git openssl ca-certificates wget libffi-dev zip gcc ruby-dev make"
 
-RUN gem install bundler -v 2.0.1
+RUN gem install bundler -v 2.1.4
 
 RUN apt-get update && apt-get install -y $PACKAGES && rm -rf /var/lib/apt/lists/*
 
