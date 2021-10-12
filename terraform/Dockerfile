@@ -14,9 +14,9 @@ RUN curl -LSso /tmp/terraform.zip "https://releases.hashicorp.com/terraform/${te
     chmod +x /usr/local/bin/terraform && \
     rm /tmp/terraform.zip
 
-RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-cloudfoundry/master/bin/install.sh)"
+RUN bash -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-cloudfoundry/master/bin/install.sh)"
 
-RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-credhub/master/bin/install.sh)"
+RUN bash -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-provider-credhub/master/bin/install.sh)"
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/orange-cloudfoundry/terraform-restrictor/master/bin/install.sh)"
 
