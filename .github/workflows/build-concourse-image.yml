@@ -25,25 +25,15 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - 
-      name: build docker images
-      run: |
-        for image in $IMAGES;do
-          echo "Processing $image"
-          cd $image
-          docker build . --file Dockerfile --tag ${{github.repository}}-$image:${{github.sha}}         
-          cd ..          
-        done
-
     -
-      name: publish buildpack image
+      name: build and publish 'buildpack' image
       uses: docker/build-push-action@v2
       with:
         context: ${{env.IMAGE}}
         push: true
         tags: |          
           ghcr.io/${{github.repository}}-${{env.IMAGE}}:${{github.sha}}
-          
+          ghcr.io/${{github.repository}}-${{env.IMAGE}}:latest
         #${{env.DOCKERHUB_ORG}}/${{env.IMAGE}}:${{github.sha}}
       env:
         IMAGE: buildpack          
